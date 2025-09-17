@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ profile.name }} - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Josefin+Sans:wght@300;400&display=swap&family=Rubik:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/static/prism-synthwave84.css">
+
+</head>
+<body>
+<nav class="navigator">
+    <div><a href="#about" class="nav-link">About</a></div>
+    {% for project in projects %}
+    <div><a href="#project-{{ loop.index }}" class="nav-link">{{ project.title or 'Untitled Project' }}</a></div>
+    {% endfor %}
+</nav>
+
+<div class="code-background">
+    <pre><code class="language-javascript" id="background-code"></code></pre>
+</div>
+
+<div class="container">
+
+    <h1 class="top-intro">Hi! I'm</h1>
+    <h1 class="top-name">{{ profile.name }}</h1>
+
+    <div class="infoblock-alter" id="about">
+        <div class="innerblock">
+            <div class="profile">
+                <div>
+                    <div class="title">{{ profile.title }}</div>
+                    <div class="description">{{ profile.description }}</div>
+                </div>
+                <div>
+                    <img src="{{ profile.avatar }}" alt="avatar" class="avatar">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="title p20">My Skills</div>
+        <div class="stack">
+            {% for skill in profile.skills %}
+            <span class="skill"><i class="{{ skill.icon }}"></i> {{ skill.name }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="contacts">
+            <p><i class="fas fa-envelope"></i> <a href="mailto:{{ contacts.email }}">Email</a></p>
+            <p><i class="fab fa-github"></i> <a href="{{ contacts.github }}" target="_blank">Github</a></p>
+            <p><i class="fab fa-linkedin"></i> <a href="https://{{ contacts.linkedin }}" target="_blank">Linkedin</a></p>
+        </div>
+
+    </div>
+
+    <h1>Project Showcases</h1>
+    {% for project in projects %}
+
+    <div class="infoblock {% if loop.index % 2 == 1 %}infoblock-alter{% endif %}" id="project-{{ loop.index }}">
+
+        <div class="innerblock">
+            <div class="title">{{ project.title or 'Untitled Project' }}</div>
+
+            <h3>Overview</h3>
+            <div class="overview">{{ project.overview }}</div>
+
+            {% if project.images %}
+            <div class="slider">
+                {% if project.image_count > 1 %}
+                <button class="slider-btn prev-btn" onclick="moveSlide({{ loop.index }}, -1)">&#10094;</button>
+                {% endif %}
+
+                <div class="slides" id="slides-{{ loop.index }}">
+                    {% for img in project.images %}
+                    <img src="{{ img }}" alt="Project image" class="slide">
+                    {% endfor %}
+                </div>
+
+                {% if project.image_count > 1 %}
+                <button class="slider-btn next-btn" onclick="moveSlide({{ loop.index }}, 1)">&#10095;</button>
+                {% endif %}
+            </div>
+            {% endif %}
+
+            <div class="meta">
+                <span>Duration: {{ project.duration }}</span>
+                <span>Featuring: {{ project.roles | join(', ') }}</span>
+            </div>
+        </div>
+
+        <div class="stack">
+            {% for item in project.stack %}
+            <span class="stack-tag"><i class="{{ item.icon }}"></i> {{ item.name }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="innerblock">
+
+            <div class="features">
+                <h3 class="dropdown-toggle"><i class="fas fa-angle-right"></i> Development Features</h3>
+                <ul class="dropdown-content">
+                    {% for feature in project.development_features %}
+                    <li>{{ feature }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {% if project.devops_features %}
+            <div class="features">
+                <h3 class="dropdown-toggle"><i class="fas fa-angle-right"></i> DevOps Features</h3>
+                <ul class="dropdown-content">
+                    {% for feature in project.devops_features %}
+                    <li>{{ feature }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+        </div>
+
+    </div>
+    {% endfor %}
+
+
+    <div class="contacts contacts-bottom">
+        <p><i class="fas fa-envelope"></i> <a href="mailto:{{ contacts.email }}">Email</a></p>
+        <p><i class="fab fa-github"></i> <a href="{{ contacts.github }}" target="_blank">Github</a></p>
+        <p><i class="fab fa-linkedin"></i> <a href="https://{{ contacts.linkedin }}" target="_blank">Linkedin</a></p>
+        <div class="meta">Made by me with HTML, CSS, JS :)</div>
+    </div>
+
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script src="/static/scripts.js"></script>
+</body>
+</html>

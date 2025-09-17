@@ -1,0 +1,258 @@
+[
+  {
+    "title": "EchoMind",
+    "pictures": "echomind",
+    "stack": [
+      "Python 3.11",
+      "Django 4.2",
+      "PostgreSQL 15",
+      "OpenAI API",
+      "Bitrix24 REST API",
+      "AmoCRM API",
+      "Speech2Text API",
+      "Redis",
+      "Nginx",
+      "Docker",
+      "Debian 11",
+      "REST"
+    ],
+    "duration": "3 months",
+    "roles": [
+      "Backend Development",
+      "DevOps Engineering",
+      "Full Cycle Development",
+      "BPA"
+    ],
+    "overview": "A web application for call transcribation and analysis that connects to Bitrix24 and AmoCRM via webhooks. ",
+    "development_features": [
+      "Analyzed & designed business processes using UML diagrams",
+      "Designed database",
+      "Dockerized the application",
+      "Provided an admin panel for managing clients & content",
+      "Integrated Speech to Text services",
+      "Integrated OpenAI services (ChatGPT);",
+      "Built prompts for LLM",
+      "Designed JWT Token Auth system",
+      "Designed & secured REST API endpoints",
+      "Integrated Bitrix24 CRM via webhooks to automatically process incoming calls",
+      "Integrated AMO CRM via webhooks to automatically process incoming calls",
+      "Implemented data caching",
+      "Implemented an asynchronous multi-staged parallel audio file processing service",
+      "Implemented a realtime call report generation monitoring with different statuses (Pending, Complete, Failed)",
+      "Implemented a wide Permission system with different rights for individual users or user groups",
+      "Implemented client currency system",
+      "Implemented REST API for front-end",
+      "Provided an endpoint documentation"
+    ],
+    "devops_features": [
+      "Set up the server",
+      "Set up database",
+      "Automated deployment",
+      "Managed infrastructure",
+      "Set up reverse proxy server (NGINX)",
+      "Set up Domain & SSL (HTTPS)",
+      "Set up log collector (Grafana, Loki)",
+      "Set up monitoring system (Grafana, Prometheus)"
+    ]
+  },  {
+    "title": "Eye Of God",
+    "pictures": "eyeofgod",
+    "stack": [
+      "Python 3.11",
+      "Django 4.2",
+      "PostgreSQL 15",
+      "Pyrogram 2",
+      "Docker SDK",
+      "Docker",
+      "Nginx",
+      "Debian 11",
+      "Websockets"
+    ],
+    "duration": "2 months",
+    "roles": [
+      "Backend Development",
+      "DevOps Engineering",
+      "Full Cycle Development",
+      "BPA"
+    ],
+    "overview": "A web admin panel that manages telegram scraping human-like bots and provides an API for data gathering and storage.",
+    "development_features": [
+      "Designed database",
+      "Optimized database and queries to efficiently query large tables (>20M rows)",
+      "Designed an admin panel for creating and managing telegram bots",
+      "Designed an admin-panel console for logging in telegram bots",
+      "Implemented API auth system for user bots",
+      "Implemented a telegram userbot for scraping telegram chats data",
+      "Implemented a runtime userbot containerization system using Docker SDK",
+      "Implemented a realtime container monitoring system built in into admin panel",
+      "Implemented a realtime bot commands system built in into admin panel"
+    ],
+    "devops_features": [
+      "Set up the server",
+      "Set up database",
+      "Automated deployment",
+      "Managed infrastructure",
+      "Set up reverse proxy server (NGINX)"
+    ]
+  },  {
+    "title": "CryptoFather",
+    "pictures": "cryptofather",
+    "stack": [
+      "Python 3.11",
+      "Django 4.2",
+      "MySQL 8",
+      "Pyrogram 2",
+      "Telegram API",
+      "Docker SDK",
+      "Nginx",
+      "Ubuntu 24",
+      "Websockets"
+    ],
+    "duration": "2 months",
+    "roles": [
+      "Backend Development",
+      "DevOps Engineering",
+      "Full Cycle Development",
+      "BPA"
+    ],
+    "overview": "A web admin panel that manages realtime lead generation from telegram chats, featuring human-like chatbots and chat keyword parsing.",
+    "development_features": [
+      "Designed database",
+      "Designed an admin panel for creating and managing telegram bots",
+      "Designed an admin-panel console for logging in telegram bots",
+      "Integrated OpenAI services (ChatGPT);",
+      "Built prompts for LLM",
+      "Implemented a human-like behaviour for telegram user bots",
+      "Implemented a telegram chat parsing mechanism for leads generation",
+      "Implemented a fallback system with manager notification if user bot has failed to answer or was revealed",
+      "Implemented a runtime userbot containerization system using Docker SDK",
+      "Implemented a realtime container monitoring system built in into admin panel",
+      "Implemented a realtime bot commands system built in into admin panel",
+      "Implemented a realtime telegram chat in admin-panel using websockets"
+    ],
+    "devops_features": [
+      "Set up the server",
+      "Set up database",
+      "Automated deployment",
+      "Managed infrastructure",
+      "Set up reverse proxy server (NGINX)"
+    ]
+  },  {
+    "title": "PSPortal",
+    "pictures": "psportal",
+    "stack": [
+      "Python 3.11",
+      "Django 5",
+      "SQLite",
+      "Telegram API",
+      "Blockchain",
+      "REST"
+    ],
+    "duration": "1 month",
+    "roles": [
+      "Backend Development",
+      "Full Cycle Development",
+      "BPA"
+    ],
+    "overview": "A web platform for P2P platform management featuring content publication, moderation and payments in TON.",
+    "development_features": [
+      "Designed database",
+      "Analyzed & designed business processes using UML diagrams",
+      "Implemented a permission system with different roles",
+      "Implemented REST API for front-end",
+      "Provided an endpoint documentation"
+    ],
+    "devops_features": []
+  },  {
+    "title": "BWTool",
+    "pictures": "b2b",
+    "stack": [
+      "PHP 8.1",
+      "Laravel 10",
+      "MySQL 8",
+      "Bitrix24 API",
+      "REST"
+    ],
+    "duration": "12 months",
+    "roles": [
+      "Backend Development",
+      "Feature Development",
+      "Support"
+    ],
+    "overview": "A web platform for B2B clients featuring wholesale purchases, analytics and extended integration with Bitrix24.",
+    "development_features": [
+      "Designed database",
+      "Implemented a wide Bitrix24 integration featuring product catalog synchronization, leads, deals synchronization, document generation & shipping",
+      "Implemented REST API for front-end",
+      "Provided an endpoint documentation"
+    ],
+    "devops_features": []
+  },  {
+    "title": "GSU",
+    "pictures": "gsu",
+    "stack": [
+      "PHP 8.1",
+      "Laravel 10",
+      "MySQL 8",
+      "Bitrix24 API",
+      "REST"
+    ],
+    "duration": "4 months",
+    "roles": [
+      "Backend Development",
+      "Feature Development",
+      "Support"
+    ],
+    "overview": "A web platform for purchasing courses, featuring admin panel for content management.",
+    "development_features": [
+      "Designed database",
+      "Implemented a wide Bitrix24 integration featuring product catalog synchronization, leads, deals synchronization, document generation & shipping",
+      "Integrated payment services",
+      "Implemented REST API for front-end",
+      "Provided an endpoint documentation"
+    ],
+    "devops_features": []
+  },  {
+    "title": "Benify",
+    "pictures": "benify",
+    "stack": [
+      "C# .NET Framework 8",
+      "RestoFrontAPI 8",
+      "Docker"
+    ],
+    "duration": "2 months",
+    "roles": [
+      "Full Cycle Development",
+      "BPA"
+    ],
+    "overview": "A plugin for resto-system IIKO that features custom loyalty program using external API.",
+    "development_features": [
+      "Analyzed & designed business processes using UML diagrams",
+      "Integrated plugin backend into IIKO CMS via IIKO SDK",
+      "Implemented data encryption system using server secret and plugin token",
+      "Built custom proxy service that encrypts data to test backend mock",
+      "Implemented a python script designed to create plugin instances in server environment using docker"
+    ],
+    "devops_features": []
+  },  {
+    "title": "LTAuditor",
+    "pictures": "lt",
+    "stack": [
+      "PHP 8.2",
+      "Laravel 11",
+      "MySQL 8",
+      "Redis",
+      "Websockets"
+    ],
+    "duration": "1 month\n",
+    "roles": [
+      "Support"
+    ],
+    "overview": "A web platform for creating electrical network maps.",
+    "development_features": [
+      "Feature shipping and bug fixes",
+      "Assisting members of the team with local app setup"
+    ],
+    "devops_features": []
+  }
+]
