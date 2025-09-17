@@ -6,6 +6,7 @@
     <title>{{ profile.name }} - {{ page.portfolio }}</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Josefin+Sans:wght@300;400&display=swap&family=Rubik:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/modals.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="/static/prism-synthwave84.css">
 
@@ -61,6 +62,7 @@
 
     <h1>{{ page.showcases }}</h1>
     {% for project in projects %}
+    {% set project_loop = loop %}
 
     <div class="infoblock {% if loop.index % 2 == 1 %}infoblock-alter{% endif %}" id="project-{{ loop.index }}">
 
@@ -78,7 +80,7 @@
 
                 <div class="slides" id="slides-{{ loop.index }}">
                     {% for img in project.images %}
-                    <img src="{{ img }}" alt="Project image" class="slide">
+                    <img src="{{ img }}" alt="Project image" class="slide" onclick="openModal({{ project_loop.index }}, {{ loop.index0 }})">
                     {% endfor %}
                 </div>
 
@@ -133,7 +135,15 @@
         <div class="meta">{{ page.made_by }}</div>
     </div>
 
+</div>
 
+<div class="modal" id="imageModal">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <div class="modal-slider">
+        <button class="slider-btn modal-btn prev-btn" onclick="moveModalSlide(-1)">&#10094;</button>
+        <div class="modal-slides" id="modalSlides"></div>
+        <button class="slider-btn modal-btn next-btn" onclick="moveModalSlide(1)">&#10095;</button>
+    </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>

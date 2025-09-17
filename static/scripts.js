@@ -131,12 +131,118 @@ document.addEventListener('DOMContentLoaded', () =>
 });
 
 // Параллакс для фонового кода
-function updateParallax() {
+function updateParallax()
+{
     const scrollPosition = window.scrollY;
     const codeBackground = document.querySelector('.code-background');
     codeBackground.style.transform = `translateY(-${scrollPosition * 0.5}px)`; // Прокрутка в 2 раза медленнее
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () =>
+{
     window.addEventListener('scroll', updateParallax);
 });
+
+// Модальное окно для полноэкранного просмотра
+let currentProjectIndex = 0;
+let currentSlideIndex = 0;
+
+function openModal(projectIndex, slideIndex)
+{
+    currentProjectIndex = projectIndex;
+    currentSlideIndex = slideIndex;
+
+    const modal = document.getElementById('imageModal');
+    const modalSlides = document.getElementById('modalSlides');
+    const projectSlides = document.querySelector(`#slides-${projectIndex}`).children;
+    const modalArrows = document.querySelector(".modal-slider .modal-btn");
+
+    document.body.style.overflow = 'hidden';
+    modal.classList.add('active');
+
+    // Заполняем модальный слайдер изображениями текущего проекта
+    modalSlides.innerHTML = '';
+    Array.from(projectSlides).forEach((img, index) =>
+    {
+        const modalImg = document.createElement('img');
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        modalImg.className = 'modal-slide';
+        if (index === slideIndex) modalImg.className += ' active';
+        modalSlides.appendChild(modalImg);
+    });
+
+    // Скрываем кнопки, если только одно изображение
+    const prevBtn = document.querySelector('.modal-btn.prev-btn');
+    const nextBtn = document.querySelector('.modal-btn.next-btn');
+    if (projectSlides.length <= 1)
+    {
+        prevBtn.classList.add('hidden');
+        nextBtn.classList.add('hidden');
+    } else {
+        prevBtn.classList.remove('hidden');
+        nextBtn.classList.remove('hidden');
+    }
+
+    // Клик на модальную картинку для закрытия
+    modalSlides.addEventListener('click', closeModal);
+
+    // Перелистывание картинок скроллом
+    const wheelHandler = (e) =>
+    {
+        e.preventDefault();
+        moveModalSlide(e.deltaY > 0 ? 1 : -1);
+    };
+    document.addEventListener('wheel', wheelHandler, { passive: false });
+
+    // Перелистывание картинок клавиатурой для стрелок
+    const keyHandler = (e) =>
+    {
+        if (e.key === 'ArrowRight') moveModalSlide(1);
+        else if (e.key === 'ArrowLeft') moveModalSlide(-1);
+        else if (e.key === 'Escape') closeModal();
+    };
+    document.addEventListener('keydown', keyHandler);
+
+    // Сохраняем обработчики для удаления
+    modal.wheelHandler = wheelHandler;
+    modal.keyHandler = keyHandler;
+
+    updateModalSlide();
+}
+
+function moveModalSlide(direction)
+{
+    const modalSlides = document.querySelectorAll('.modal-slide');
+    const projectSlides = document.querySelector(`#slides-${currentProjectIndex}`).children;
+
+    currentSlideIndex = (currentSlideIndex + direction + modalSlides.length) % modalSlides.length;
+
+    // Обновляем картинку в модалке
+    updateModalSlide();
+
+    // Синхронизируем исходный слайдер
+    Array.from(projectSlides).forEach((slide, index) =>
+    {
+        slide.classList.toggle('active', index === currentSlideIndex);
+    });
+}
+
+function updateModalSlide()
+{
+    const modalSlides = document.querySelectorAll('.modal-slide');
+    modalSlides.forEach((slide, index) =>
+    {
+        slide.classList.toggle('active', index === currentSlideIndex);
+    });
+}
+
+function closeModal()
+{
+    const modal = document.getElementById('imageModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+
+    if (modal.wheelHandler) document.removeEventListener('wheel', modal.wheelHandler, { passive: false });
+    if (modal.keyHandler) document.removeEventListener('keydown', modal.keyHandler);
+}
