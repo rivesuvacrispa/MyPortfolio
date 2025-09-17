@@ -102,19 +102,16 @@ document.addEventListener('DOMContentLoaded', () =>
         {
             const content = toggle.nextElementSibling;
             const isActive = content.classList.contains('active');
-            document.querySelectorAll('.dropdown-content').forEach(item =>
+
+            if (isActive)
             {
-                item.classList.remove('active');
-                item.previousElementSibling.classList.remove('active');
-                item.style.maxHeight = '0'; // Сбрасываем max-height для всех
-            });
-            if (!isActive)
-            {
+                content.classList.remove('active')
+                toggle.classList.remove('active')
+                content.style.maxHeight = '0'; // Сбрасываем при повторном клике
+            } else {
                 content.classList.add('active');
                 toggle.classList.add('active');
                 content.style.maxHeight = content.scrollHeight + 'px'; // Устанавливаем высоту для открытия
-            } else {
-                content.style.maxHeight = '0'; // Сбрасываем при повторном клике
             }
         });
     });

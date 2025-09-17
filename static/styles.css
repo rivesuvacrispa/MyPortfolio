@@ -181,7 +181,8 @@ h3 {
     top: 0;
     right: 0;
     gap: 10px;
-    width: 200px;
+    width: 10%;
+    min-width: 100px;
 }
 
 .navigator a {
@@ -223,6 +224,7 @@ h3 {
     padding-top: 50px;
     margin: 0;
     color: #bebebe;
+    font-size: 1.2em;
 }
 
 .top-name {
@@ -274,4 +276,33 @@ h3 {
 
 .code-background code {
     display: block;
+}
+
+.language-selector {
+    position: fixed;
+    margin: 0;
+    top: 20px;
+    right: 0;
+    font-size: 1em;
+    padding: 0 40px 0 0;
+    width: 10%;
+    min-width: 100px;
+    z-index: 2000;
+}
+
+.language-selector a {
+    text-decoration: none;
+}
+
+.language-selector a.active {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.lang {
+    text-decoration: none;
+    color: #4b4b4b;
+    font-size: 16px;
+    transition: font-size 0.3s ease;
 }

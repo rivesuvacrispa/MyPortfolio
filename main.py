@@ -12,10 +12,6 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 templates = Jinja2Templates(directory="templates")
 
-PROFILE_JSON = "content/en/profile.json"
-CONTACTS_JSON = "content/en/contacts.json"
-PROJECTS_JSON = "content/en/projects.json"
-
 stack_icons = {
     "Python 3.11": "fab fa-python",
     "Django 4.2": "fab fa-python",
@@ -47,22 +43,38 @@ stack_icons = {
     "RestoFrontAPI 8": "fas fa-code"
 }
 
+AVAILABLE_LANGUAGES = ["en", "ru"]
+
+
+def lang_file(lang: str, file: str):
+    return f"content/{lang}/{file}"
+
 
 @app.get("/", response_class=HTMLResponse)
-async def root(request: Request):
+async def root(request: Request, lang="en"):
+
+    if lang not in AVAILABLE_LANGUAGES:
+        lang = "en"
+
+    request.lang = lang
+
+    file_page = lang_file(lang, "page.json")
+    file_profile = lang_file(lang, "profile.json")
+    file_projects = lang_file(lang, "projects.json")
+
+    page = {}
+    if os.path.exists(file_page):
+        with open(file_page, 'r', encoding='utf-8') as f:
+            page = json.load(f)
+
     profile = {}
-    if os.path.exists(PROFILE_JSON):
-        with open(PROFILE_JSON, 'r', encoding='utf-8') as f:
+    if os.path.exists(file_profile):
+        with open(file_profile, 'r', encoding='utf-8') as f:
             profile = json.load(f)
 
-    contacts = {}
-    if os.path.exists(CONTACTS_JSON):
-        with open(CONTACTS_JSON, 'r', encoding='utf-8') as f:
-            contacts = json.load(f)
-
     projects = []
-    if os.path.exists(PROJECTS_JSON):
-        with open(PROJECTS_JSON, 'r', encoding='utf-8') as f:
+    if os.path.exists(file_projects):
+        with open(file_projects, 'r', encoding='utf-8') as f:
             projects = json.load(f)
 
         for project in projects:
@@ -95,7 +107,7 @@ async def root(request: Request):
         {
             "request": request,
             "profile": profile,
-            "contacts": contacts,
-            "projects": projects
+            "projects": projects,
+            "page": page
         }
     )

@@ -30,18 +30,17 @@
       "Dockerized the application",
       "Provided an admin panel for managing clients & content",
       "Integrated Speech to Text services",
-      "Integrated OpenAI services (ChatGPT);",
+      "Integrated OpenAI services (ChatGPT)",
       "Built prompts for LLM",
       "Designed JWT Token Auth system",
-      "Designed & secured REST API endpoints",
-      "Integrated Bitrix24 CRM via webhooks to automatically process incoming calls",
+      "Designed & secured REST API endpoints for front-end",
+      "Integrated Bitrix24 via webhooks to automatically process incoming calls",
       "Integrated AMO CRM via webhooks to automatically process incoming calls",
       "Implemented data caching",
       "Implemented an asynchronous multi-staged parallel audio file processing service",
       "Implemented a realtime call report generation monitoring with different statuses (Pending, Complete, Failed)",
       "Implemented a wide Permission system with different rights for individual users or user groups",
       "Implemented client currency system",
-      "Implemented REST API for front-end",
       "Provided an endpoint documentation"
     ],
     "devops_features": [
@@ -120,7 +119,7 @@
       "Designed database",
       "Designed an admin panel for creating and managing telegram bots",
       "Designed an admin-panel console for logging in telegram bots",
-      "Integrated OpenAI services (ChatGPT);",
+      "Integrated OpenAI services (ChatGPT)",
       "Built prompts for LLM",
       "Implemented a human-like behaviour for telegram user bots",
       "Implemented a telegram chat parsing mechanism for leads generation",
@@ -128,7 +127,8 @@
       "Implemented a runtime userbot containerization system using Docker SDK",
       "Implemented a realtime container monitoring system built in into admin panel",
       "Implemented a realtime bot commands system built in into admin panel",
-      "Implemented a realtime telegram chat in admin-panel using websockets"
+      "Implemented a realtime telegram chat in admin-panel using websockets",
+      "Implemented a manager notification system that allows tracking various events"
     ],
     "devops_features": [
       "Set up the server",
@@ -154,11 +154,11 @@
       "Full Cycle Development",
       "BPA"
     ],
-    "overview": "A web platform for P2P platform management featuring content publication, moderation and payments in TON.",
+    "overview": "A web platform for P2P platform management featuring content publication, moderation, referral system and payments in TON.",
     "development_features": [
       "Designed database",
       "Analyzed & designed business processes using UML diagrams",
-      "Implemented a permission system with different roles",
+      "Implemented a permission system with different roles (Moderator, Platform, Trader)",
       "Implemented REST API for front-end",
       "Provided an endpoint documentation"
     ],
@@ -248,7 +248,7 @@
     "roles": [
       "Support"
     ],
-    "overview": "A web platform for creating electrical network maps.",
+    "overview": "A web platform for creating town electrical network maps.",
     "development_features": [
       "Feature shipping and bug fixes",
       "Assisting members of the team with local app setup"
