@@ -1,7 +1,7 @@
 {
   "name": "Vladimir Yagnaev",
   "university": "ITMO University, Saint Petersburg, Russia",
-  "avatar": "static/pictures/avatar.jpg",
+  "avatar": "static/pictures/avatar.webp",
   "title": "Backend Developer",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pulvinar imperdiet pretium. Mauris pretium eros consequat elit malesuada, ac facilisis sapien euismod. Curabitur quis sapien lacinia, laoreet neque at, vehicula ipsum. Nullam commodo, nulla non suscipit pellentesque, eros felis feugiat mi, at porta turpis elit sed nisl. In semper iaculis diam in mollis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec sollicitudin eu ex vitae laoreet.\n\nCras tempus neque at consequat maximus. Etiam eu scelerisque lectus, eget dapibus massa. Maecenas fringilla feugiat mauris a vestibulum. Nam eleifend at nisi at accumsan. Aenean sit amet leo dui. Sed in velit eget felis mollis luctus quis non nisi. Praesent scelerisque luctus accumsan. Nunc rutrum, magna ut tincidunt cursus, diam sapien rutrum neque, ac accumsan massa diam quis ligula. Curabitur interdum egestas porta.",
   "skills": [

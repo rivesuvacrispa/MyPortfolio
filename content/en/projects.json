@@ -46,7 +46,7 @@
     "devops_features": [
       "Set up the server",
       "Set up database",
-      "Automated deployment",
+      "Automated deployment via github actions",
       "Managed infrastructure",
       "Set up reverse proxy server (NGINX)",
       "Set up Domain & SSL (HTTPS)",
@@ -89,7 +89,7 @@
     "devops_features": [
       "Set up the server",
       "Set up database",
-      "Automated deployment",
+      "Automated deployment via github actions",
       "Managed infrastructure",
       "Set up reverse proxy server (NGINX)"
     ]
@@ -133,7 +133,7 @@
     "devops_features": [
       "Set up the server",
       "Set up database",
-      "Automated deployment",
+      "Automated deployment via github actions",
       "Managed infrastructure",
       "Set up reverse proxy server (NGINX)"
     ]

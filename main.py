@@ -85,7 +85,7 @@ async def root(request: Request, lang="en"):
                     project["images"] = [
                         f"/static/pictures/{pictures_folder}/{img}"
                         for img in sorted(os.listdir(picture_path))[:6]
-                        if img.endswith(('.jpg', '.jpeg', '.png', '.gif'))
+                        if img.endswith('.webp')
                     ]
                     project["image_count"] = len(project["images"])
                 else:
