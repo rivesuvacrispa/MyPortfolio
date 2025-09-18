@@ -128,17 +128,18 @@ h3 {
     transition: transform 0.5s ease-in-out;
 }
 
-.slide {
+.slide-image {
     flex: 0 0 100%;
     width: 100%;
     height: 500px;
     object-fit: contain;
     display: none;
     background-color: #212121;
-    cursor: zoom-in; /* Лупа с + при наведении */
+    cursor: zoom-in;
+    aspect-ratio: 16/9;
 }
 
-.slide.active {
+.slide-image.active {
     display: block;
 }
 

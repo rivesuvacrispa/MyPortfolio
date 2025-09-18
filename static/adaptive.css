@@ -25,12 +25,22 @@
         align-items: center;
     }
 
+    .slide-image {
+        width: 1165px;
+        height: 500px;
+    }
+
 }
 
 @media (max-width: 1024px) {
 
     .contacts {
         gap: 20px;
+    }
+
+    .slide-image {
+        width: 990px;
+        height: 500px;
     }
 
 }
@@ -58,6 +68,11 @@
         padding-top: 100px;
     }
 
+    .slide-image {
+        width: 738px;
+        height: 500px;
+    }
+
 }
 
 @media (max-width: 600px) {
@@ -66,7 +81,7 @@
         font-size: 14px;
     }
 
-    .slide {
+    .slide-image {
         height: 400px;
         object-fit: contain;
     }
@@ -113,12 +128,22 @@
         padding-top: 5px;
     }
 
+    .slide-image {
+        width: 398px;
+        height: 350px;
+    }
+
 }
 
 @media (max-width: 379px) {
 
     .stack {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .slide-image {
+        width: 293px;
+        height: 350px;
     }
 
 }

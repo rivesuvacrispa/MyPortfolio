@@ -13,7 +13,7 @@ document.querySelectorAll('.slides').forEach(slides =>
 function moveSlide(sliderIndex, direction)
 {
     const slideId = `slides-${sliderIndex}`;
-    const slides = document.querySelector(`#${slideId}`).querySelectorAll('.slide');
+    const slides = document.querySelector(`#${slideId}`).querySelectorAll('.slide-image');
     slideIndices[slideId] += direction;
 
     // Циклическая навигация
@@ -32,7 +32,7 @@ function moveSlide(sliderIndex, direction)
 // Обновление отображаемого слайда
 function updateSlides(slideId)
 {
-    const slides = document.querySelector(`#${slideId}`).querySelectorAll('.slide');
+    const slides = document.querySelector(`#${slideId}`).querySelectorAll('.slide-image');
     slides.forEach((slide, index) =>
     {
         slide.classList.remove('active');
