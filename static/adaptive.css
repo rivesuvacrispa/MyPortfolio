@@ -101,6 +101,10 @@
         width: 196px;
     }
 
+    .code-background {
+        display: none;
+    }
+
 }
 
 @media (max-width: 379px) {

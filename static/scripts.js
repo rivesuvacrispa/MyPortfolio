@@ -43,18 +43,25 @@ function updateSlides(slideId)
     });
 }
 
+let selectedNavlink = null;
+
 function updateNavigator() {
 
     function selectNavlink(link)
     {
+        if (selectedNavlink === link) return;
+
+        selectedNavlink = link;
         navLinks.forEach(l => l.classList.remove('active'));
         link.classList.add('active');
-        navigator.scrollLeft = link.offsetLeft - 20;
+
+        // Включить скролл навигатора, только если он в виде топ-бара
+        if (window.innerWidth <= 1440)
+            navigator.scrollLeft = link.offsetLeft - 20;
     }
 
     const scrollPosition = window.scrollY;
     const navLinks = document.querySelectorAll('.nav-link');
-    const navContent = document.querySelector('.navigator-content');
     const navigator = document.querySelector('.navigator');
 
     // Если наверху страницы, подсвечиваем первый блок
@@ -143,6 +150,12 @@ document.addEventListener('DOMContentLoaded', () =>
 // Параллакс для фонового кода
 function updateParallax()
 {
+    // Отключаем параллакс на мобильных или слабых устройствах
+    if (window.innerWidth <= 425 || navigator.hardwareConcurrency < 4)
+    {
+        return;
+    }
+
     const scrollPosition = window.scrollY;
     const codeBackground = document.querySelector('.code-background');
     codeBackground.style.transform = `translateY(-${scrollPosition * 0.5}px)`; // Прокрутка в 2 раза медленнее
