@@ -44,14 +44,24 @@ function updateSlides(slideId)
 }
 
 function updateNavigator() {
+
+    function selectNavlink(link)
+    {
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        navigator.scrollLeft = link.offsetLeft - 20;
+    }
+
     const scrollPosition = window.scrollY;
     const navLinks = document.querySelectorAll('.nav-link');
+    const navContent = document.querySelector('.navigator-content');
+    const navigator = document.querySelector('.navigator');
 
     // Если наверху страницы, подсвечиваем первый блок
     if (scrollPosition < 50) // Порог 50 пикселей для верхней части
     {
-        navLinks.forEach(link => link.classList.remove('active'));
-        document.querySelector('.nav-link[href="#about"]').classList.add('active');
+        const link = document.querySelector('.nav-link[href="#about"]');
+        selectNavlink(link);
         return;
     }
 
@@ -64,13 +74,13 @@ function updateNavigator() {
             const rect = section.getBoundingClientRect();
             if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2)
             {
-                navLinks.forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
+                selectNavlink(link);
             }
         }
     });
 }
 
+// Переход по навигатору
 document.addEventListener('DOMContentLoaded', () =>
 {
     const navLinks = document.querySelectorAll('.nav-link');

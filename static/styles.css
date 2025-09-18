@@ -1,3 +1,7 @@
+html {
+    font-size: 16px;
+}
+
 body {
     font-family: 'Rubik', sans-serif;
     color: #F0F0F0;
@@ -29,7 +33,7 @@ h1 {
 }
 
 .innerblock {
-    padding: 20px;
+    padding: 1rem;
 }
 
 .title {
@@ -47,7 +51,7 @@ h1 {
 }
 
 .p20 {
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem;
 }
 
 .meta {
@@ -70,13 +74,13 @@ h3 {
 }
 
 .features {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .dropdown-toggle {
     cursor: pointer;
     color: #74aae5;
-    margin-bottom: 10px;
+    margin-bottom: 3px;
     display: flex;
     align-items: center;
     transition: color 0.3s ease;
@@ -147,7 +151,7 @@ h3 {
     border: none;
     padding: 10px;
     cursor: pointer;
-    font-size: 1.2em;
+    font-size: 1.5rem;
     border-radius: 4px;
 }
 
@@ -163,42 +167,32 @@ h3 {
     right: 10px;
 }
 
-@media (max-width: 600px) {
-    .slider-btn {
-        padding: 5px;
-        font-size: 1em;
-    }
-
-    .slide {
-        height: 200px;
-    }
-}
-
 .navigator {
     position: fixed;
-    height: 100vh;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
     padding: 0 40px 0 0;
     margin: 0;
     z-index: 1000;
-    top: 0;
+    top: 40px;
     right: 0;
+    width: 100px;
+}
+
+.navigator-content {
+    align-items: end;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
-    width: 10%;
-    min-width: 100px;
 }
 
 .navigator a {
     text-decoration: none;
-    color: #4b4b4b;
-    font-size: 16px;
+    color: #ababab;
     transition: font-size 0.3s ease;
+    white-space: nowrap;
 }
 
 .navigator a.active {
-    font-size: 18px;
+    font-size: 1.2rem;
     font-weight: bold;
     color: #007bff;
 }
@@ -207,11 +201,11 @@ h3 {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 48px;
+    min-height: 48px;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 100px;
+    gap: 50px;
     align-items: center;
     font-family: 'Josefin Sans', monospace;
 }
@@ -229,11 +223,12 @@ h3 {
     padding-top: 50px;
     margin: 0;
     color: #bebebe;
-    font-size: 1.2em;
+    font-size: 1.5rem;
 }
 
 .top-name {
     margin: 0 0 50px;
+    font-size: 2rem;
 }
 
 .profile {
@@ -244,8 +239,15 @@ h3 {
 }
 
 .avatar {
-    width: 256px;
     height: 256px;
+    display: flex;
+    justify-content: center;
+}
+
+.avatar-img {
+    object-fit: contain;
+    height: 256px;
+    width: 256px;
 }
 
 .stack {
@@ -255,6 +257,10 @@ h3 {
     padding: 10px;
     gap: 10px;
     backdrop-filter: blur(5px);
+}
+
+.stack-tag {
+    text-align: center;
 }
 
 .code-background {
@@ -287,11 +293,9 @@ h3 {
     margin: 0;
     top: 20px;
     right: 0;
-    font-size: 1em;
-    padding: 0 40px 0 0;
-    width: 10%;
+    padding: 0;
     min-width: 100px;
-    z-index: 2000;
+    z-index: 500;
 }
 
 .language-selector a {
@@ -299,7 +303,7 @@ h3 {
 }
 
 .language-selector a.active {
-    font-size: 18px;
+    font-size: 1.2rem;
     font-weight: bold;
     color: #007bff;
 }
@@ -307,6 +311,5 @@ h3 {
 .lang {
     text-decoration: none;
     color: #4b4b4b;
-    font-size: 16px;
     transition: font-size 0.3s ease;
 }

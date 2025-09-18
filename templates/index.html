@@ -7,21 +7,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Josefin+Sans:wght@300;400&display=swap&family=Rubik:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/styles.css">
     <link rel="stylesheet" href="/static/modals.css">
+    <link rel="stylesheet" href="/static/adaptive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="/static/prism-synthwave84.css">
 
 </head>
 <body>
-<div class="language-selector">
-    <a href="/?lang=en" class="lang {% if request.lang == 'en' %}active{% endif %}">EN</a> /
-    <a href="/?lang=ru" class="lang {% if request.lang == 'ru' %}active{% endif %}">РУС</a>
-</div>
 
 <nav class="navigator">
-    <div><a href="#about" class="nav-link">{{ page.about }}</a></div>
-    {% for project in projects %}
-    <div><a href="#project-{{ loop.index }}" class="nav-link">{{ project.title or '---' }}</a></div>
-    {% endfor %}
+    <div class="navigator-content">
+        <div><a href="#about" class="nav-link">{{ page.about }}</a></div>
+        {% for project in projects %}
+        <div><a href="#project-{{ loop.index }}" class="nav-link">{{ project.title or '---' }}</a></div>
+        {% endfor %}
+    </div>
 </nav>
 
 <div class="code-background">
@@ -29,6 +28,11 @@
 </div>
 
 <div class="container">
+
+    <div class="language-selector">
+        <a href="/?lang=en" class="lang {% if request.lang == 'en' %}active{% endif %}">EN</a> /
+        <a href="/?lang=ru" class="lang {% if request.lang == 'ru' %}active{% endif %}">РУС</a>
+    </div>
 
     <h1 class="top-intro">{{ page.greeting }}</h1>
     <h1 class="top-name">{{ profile.name }}</h1>
@@ -40,8 +44,8 @@
                     <div class="title">{{ profile.title }}</div>
                     <div class="description">{{ profile.description }}</div>
                 </div>
-                <div>
-                    <img src="{{ profile.avatar }}" alt="avatar" class="avatar">
+                <div class="avatar">
+                    <img src="{{ profile.avatar }}" alt="avatar" class="avatar-img">
                 </div>
             </div>
         </div>
@@ -50,7 +54,7 @@
         <div class="title p20">{{ page.skills }}</div>
         <div class="stack">
             {% for skill in profile.skills %}
-            <span class="skill"><i class="{{ skill.icon }}"></i> {{ skill.name }}</span>
+            <span class="stack-tag"><i class="{{ skill.icon }}"></i> {{ skill.name }}</span>
             {% endfor %}
         </div>
 
