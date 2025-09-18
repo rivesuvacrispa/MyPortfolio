@@ -54,6 +54,10 @@
         padding-right: 0;
     }
 
+    .contacts-bottom {
+        padding-top: 100px;
+    }
+
 }
 
 @media (max-width: 600px) {
@@ -64,7 +68,7 @@
 
     .slide {
         height: 400px;
-        object-fit: cover;
+        object-fit: contain;
     }
 
 }
@@ -103,6 +107,10 @@
 
     .code-background {
         display: none;
+    }
+
+    .contacts-bottom {
+        padding-top: 5px;
     }
 
 }
