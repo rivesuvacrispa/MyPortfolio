@@ -137,13 +137,49 @@ document.addEventListener('DOMContentLoaded', () =>
 // Загрузка scripts.js для фона с подсветкой
 document.addEventListener('DOMContentLoaded', () =>
 {
+    // На слабых устройствах код фона не загружается
+    if (window.innerWidth <= 425 || navigator.hardwareConcurrency < 4) return;
+
+    // Т.к. центральная страница на всю ширину, загрузка кода идет без анимации
+    if (window.innerWidth <= 1440)
+    {
+        fetch('/static/scripts.js')
+            .then(response => response.text())
+            .then(data =>
+            {
+                const codeElement = document.getElementById('background-code');
+                codeElement.textContent = data;
+                Prism.highlightElement(codeElement);
+            });
+
+        return;
+    }
+
     fetch('/static/scripts.js')
         .then(response => response.text())
         .then(data =>
         {
             const codeElement = document.getElementById('background-code');
-            codeElement.textContent = data; // Вставляем код
-            Prism.highlightElement(codeElement); // Запускаем подсветку
+            const lines = data.split('\n');
+            let index = 0;
+
+            function addLine()
+            {
+                if (index < lines.length)
+                {
+                    const line = lines[index];
+                    const highlightedLine = Prism.highlight(line, Prism.languages.javascript, 'javascript');
+                    const lineElement = document.createElement('span');
+                    lineElement.className = 'line';
+                    lineElement.innerHTML = highlightedLine;
+                    codeElement.appendChild(lineElement);
+                    index++;
+                    setTimeout(addLine, 20);
+                }
+            }
+
+            codeElement.innerHTML = '';
+            addLine();
         });
 });
 
@@ -178,7 +214,6 @@ function openModal(projectIndex, slideIndex)
     const modal = document.getElementById('imageModal');
     const modalSlides = document.getElementById('modalSlides');
     const projectSlides = document.querySelector(`#slides-${projectIndex}`).children;
-    const modalArrows = document.querySelector(".modal-slider .modal-btn");
 
     document.body.style.overflow = 'hidden';
     modal.classList.add('active');

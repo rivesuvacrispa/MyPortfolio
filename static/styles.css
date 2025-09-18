@@ -284,9 +284,32 @@ h3 {
     background: #1a1a1a;
 }
 
+.language-javascript {
+        overflow: hidden;
+}
+
 .code-background code {
     display: block;
 }
+
+@media (min-width: 1440px) {
+
+    .code-background .line {
+        display: block;
+        opacity: 0;
+        transform: translateX(200px);
+        animation: slideInFade 0.5s ease forwards;
+    }
+
+    @keyframes slideInFade {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}
+
+
 
 .language-selector {
     position: fixed;
