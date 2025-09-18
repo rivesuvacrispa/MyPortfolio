@@ -29,7 +29,6 @@ pre[class*="language-"] {
 	hyphens: none;
 }
 
-/* Code blocks */
 pre[class*="language-"] {
 	padding: 1em;
 	margin: .5em 0;

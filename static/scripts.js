@@ -44,6 +44,9 @@ function updateSlides(slideId)
 }
 
 let selectedNavlink = null;
+const navLinks = document.querySelectorAll('.nav-link');
+const sections = [];
+navLinks.forEach(link => sections.push(document.querySelector(link.getAttribute('href'))))
 
 function updateNavigator() {
 
@@ -61,7 +64,6 @@ function updateNavigator() {
     }
 
     const scrollPosition = window.scrollY;
-    const navLinks = document.querySelectorAll('.nav-link');
     const navigator = document.querySelector('.navigator');
 
     // Если наверху страницы, подсвечиваем первый блок
@@ -73,18 +75,15 @@ function updateNavigator() {
     }
 
     // Логика для остальных секций
-    navLinks.forEach(link =>
-    {
-        const section = document.querySelector(link.getAttribute('href'));
-        if (section)
+    for (let i = 0; i < sections.length; i++){
+        const section = sections[i];
+        const link = navLinks[i];
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2)
         {
-            const rect = section.getBoundingClientRect();
-            if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2)
-            {
-                selectNavlink(link);
-            }
+            selectNavlink(link);
         }
-    });
+    }
 }
 
 // Переход по навигатору
@@ -186,21 +185,19 @@ document.addEventListener('DOMContentLoaded', () =>
 // Параллакс для фонового кода
 function updateParallax()
 {
-    // Отключаем параллакс на мобильных или слабых устройствах
-    if (window.innerWidth <= 425 || navigator.hardwareConcurrency < 4)
-    {
-        return;
-    }
-
     const scrollPosition = window.scrollY;
     const codeBackground = document.querySelector('.code-background');
     codeBackground.style.transform = `translateY(-${scrollPosition * 0.5}px)`; // Прокрутка в 2 раза медленнее
 }
 
-document.addEventListener('DOMContentLoaded', () =>
+// Включаем параллакс только на широких экранах
+if (window.innerWidth > 425 && navigator.hardwareConcurrency >= 4)
 {
-    window.addEventListener('scroll', updateParallax);
-});
+    document.addEventListener('DOMContentLoaded', () =>
+    {
+        window.addEventListener('scroll', updateParallax);
+    });
+}
 
 // Модальное окно для полноэкранного просмотра
 let currentProjectIndex = 0;
