@@ -40,7 +40,12 @@ stack_icons = {
     "Laravel 10": "fab fa-laravel",
     "Laravel 11": "fab fa-laravel",
     "C# .NET Framework 8": "fab fa-cuttlefish",
-    "RestoFrontAPI 8": "fas fa-code"
+    "RestoFrontAPI 8": "fas fa-code",
+    "Unity 2021": "fa-brands fa-unity",
+    "Unity 2023": "fa-brands fa-unity",
+    "Java SDK": "fab fa-java",
+    "Unity 6": "fa-brands fa-unity",
+    "C# 8.0": "fab fa-cuttlefish",
 }
 
 AVAILABLE_LANGUAGES = ["en", "ru"]
@@ -84,7 +89,7 @@ async def root(request: Request, lang="en"):
                 if os.path.exists(picture_path):
                     project["images"] = [
                         f"/static/pictures/{pictures_folder}/{img}"
-                        for img in sorted(os.listdir(picture_path))[:6]
+                        for img in sorted(os.listdir(picture_path))
                         if img.endswith('.webp')
                     ]
                     project["image_count"] = len(project["images"])

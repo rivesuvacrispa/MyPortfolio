@@ -100,10 +100,12 @@
             </div>
             {% endif %}
 
+            {% if project.roles or project.duration %}
             <div class="meta">
-                <span>{{ page.duration }}: {{ project.duration }}</span>
-                <span>{{ page.featuring }}: {{ project.roles | join(', ') }}</span>
+                {% if project.duration %}<span>{{ page.duration }}: {{ project.duration }}</span>{% endif %}
+                {% if project.roles %}<span>{{ page.featuring }}: {{ project.roles | join(', ') }}</span>{% endif %}
             </div>
+            {% endif %}
         </div>
 
         <div class="stack">

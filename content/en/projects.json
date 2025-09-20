@@ -244,7 +244,7 @@
       "Redis",
       "Websockets"
     ],
-    "duration": "1 month\n",
+    "duration": "1 month",
     "roles": [
       "Support"
     ],
@@ -252,6 +252,66 @@
     "development_features": [
       "Feature shipping and bug fixes",
       "Assisting members of the team with local app setup"
+    ],
+    "devops_features": []
+  }, {
+    "title": "Crawly Chronicles",
+    "pictures": "crawly",
+    "stack": [
+      "Unity 2021",
+      "Unity 6",
+      "C# 8.0"
+    ],
+    "duration": "2 months",
+    "roles": [
+      "Game Development",
+      "Game Designer",
+      "Digital Artist",
+      "Sound Designer",
+      "VFX Artist"
+    ],
+    "overview": "A 2D action survival game with an interesting twist. A submission to Brackeys GameJam 2023.1, the alpha version built in 1 week totally from scratch.",
+    "development_features": [
+      "Designed an idea to match the given GameJam's theme",
+      "Designed fundamental game concepts and mechanics",
+      "Designed a unique game style",
+      "Designed and created sound effects",
+      "Designed and created visual effects",
+      "Designed and created sprites and animations",
+      "Designed and implemented game cycle",
+      "Designed and created user interface",
+      "Implemented combat system with physics, parrying, armor and other complex mechanics",
+      "Implemented a day-night cycle system",
+      "Implemented difficulty systems",
+      "Implemented a player skill system with the ability to build your own unique play style",
+      "Implemented AI system for enemies featuring pathfinding, states, complex tasks, state changes, various unique behaviours",
+      "Implemented boss mechanics featuring different combat mechanics such as bullet hell",
+      "Implemented localization system for two languages",
+      "Tracked and fixed bugs"
+    ],
+    "devops_features": []
+  },  {
+    "title": "Other Projects",
+    "pictures": "other",
+    "stack": [
+      "Unity 2021",
+      "Unity 2023",
+      "Unity 6",
+      "Java SDK"
+    ],
+    "duration": "",
+    "roles": [],
+    "overview": "Through my programming journey, i've made a lot of things. My hobby is game development and there are a lot of projects I've been working on. Many of them are left unfinished and many have been forgotten, but one thing persists: thanks to more than 100k lines of C# code I've written, I acquired deep understanding of object-oriented programming, asynchronous tasks, math, physics and many other things.",
+    "development_features": [
+      "Worked on many different procedural generation algorithms, such as combined perlin and voronoi noises, Wave Function Collapse (WFC)",
+      "Worked with Unity's Burst compiler to optimize heavy calculations by hundreds of times, compiling C# into native code",
+      "Worked with different algorithms such as AStar, Wave Function Collapse (WFC), Cube Marching Algorithm, Raycasting, Constructive Solid Geometry (CSG)",
+      "Worked on JSON-based or bytes-based save / load systems",
+      "Worked with shaders using Unity's Shader Graph",
+      "Worked with Lighting and baking",
+      "Worked with Physics: vectors, quaternions, forces",
+      "Worked with AI state machines",
+      "Worked with animations and animators"
     ],
     "devops_features": []
   }
