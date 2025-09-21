@@ -71,7 +71,7 @@
     <div class="infoblock {% if loop.index % 2 == 1 %}infoblock-alter{% endif %}" id="project-{{ loop.index }}">
 
         <div class="innerblock">
-            <div class="title">{{ project.title or '---' }}</div>
+            <div class="title" id="{{ project.id }}">{{ project.title or '---' }}</div>
 
             <h3>{{ page.overview }}</h3>
             <div class="overview">{{ project.overview }}</div>

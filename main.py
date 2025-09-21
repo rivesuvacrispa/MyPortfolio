@@ -98,6 +98,7 @@ async def root(request: Request, lang="en"):
             else:
                 project["images"] = []
 
+            project["id"] = project.get('title', "").lower().replace(" ", "-")
             stack = project.get("stack", [])
             if stack:
                 project["stack"] = [
